@@ -108,3 +108,13 @@ const isWindows = /Windows/i.test(navigator.userAgent);
 //   $(".windows-btn").prependTo(".install-actions");
 //   $(".windows-btn").addClass("highlight");
 // }
+
+const wrapper = document.querySelector(".screenshots-wrapper");
+
+document.querySelector(".scroll-btn.left").onclick = () => {
+  wrapper.scrollBy({ left: -300, behavior: "smooth" });
+};
+
+document.querySelector(".scroll-btn.right").onclick = () => {
+  wrapper.scrollBy({ left: 300, behavior: "smooth" });
+};
