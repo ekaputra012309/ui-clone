@@ -1,343 +1,555 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
-  <!-- AdminLTE -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
-  <link rel="stylesheet" href="assets/style.css">
-</head>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-<body class="hold-transition layout-top-nav">
-<div class="wrapper">
+  <body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav
+        class="main-header navbar navbar-expand navbar-white navbar-light px-2"
+      >
+        <a href="/" class="navbar-brand"><b>My</b>Play</a>
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light px-2">
-    <a href="#" class="navbar-brand"><b>My</b>Play</a>
+        <form class="form-inline ml-2 flex-grow-1">
+          <input
+            id="searchInput"
+            class="form-control w-100"
+            type="search"
+            placeholder="Search Apps"
+          />
+        </form>
+      </nav>
 
-    <form class="form-inline ml-2 flex-grow-1">
-      <input id="searchInput" class="form-control w-100" type="search" placeholder="Search Apps">
-    </form>
-  </nav>
+      <!-- Content -->
+      <div class="content-wrapper">
+        <div class="container-fluid px-lg-5 px-xl-6">
+          <!-- Categories -->
+          <div class="mb-3 d-flex overflow-auto category-scroll mt-2">
+            <button class="chip all active mr-2" data-filter="all">All</button>
+            <button class="chip android mr-2" data-filter="android">
+              <i class="fab fa-android mr-1"></i> Android
+            </button>
+            <button class="chip windows mr-2" data-filter="windows">
+              <i class="fab fa-windows mr-1"></i> Windows
+            </button>
+            <button class="chip demo mr-2" data-filter="demo">
+              <i class="fas fa-globe mr-1"></i> Demo
+            </button>
+          </div>
 
-  <!-- Content -->
-  <div class="content-wrapper">
-    <div class="container-fluid px-lg-5 px-xl-6">
+          <!-- Grid -->
+          <div class="app-section position-relative mt-2">
+            <!-- LEFT ARROW -->
+            <button class="scroll-btn left d-none d-md-flex">
+              <i class="fas fa-chevron-left"></i>
+            </button>
 
-      <!-- Categories -->
-      <div class="mb-3 d-flex overflow-auto category-scroll mt-2">
-        <button class="chip all active mr-2" data-filter="all">All</button>
-        <button class="chip android mr-2" data-filter="android"><i class="fab fa-android mr-1"></i> Android</button>
-        <button class="chip windows mr-2" data-filter="windows"><i class="fab fa-windows mr-1"></i> Windows</button>
-        <button class="chip demo mr-2" data-filter="demo"><i class="fas fa-globe mr-1"></i> Demo</button>
-      </div>
+            <div class="d-flex overflow-auto pb-3 app-scroll" id="appList">
+              <a
+                href="detail.html?app=instagram"
+                class="text-dark text-decoration-none"
+              >
+                <div
+                  class="app-item mr-3"
+                  style="min-width: 320px"
+                  data-category="android windows"
+                  data-name="instagram"
+                >
+                  <div class="app-card">
+                    <img
+                      src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+                      class="app-banner"
+                    />
+                    <div class="d-flex align-items-center mt-2">
+                      <img
+                        src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                        class="app-mini-icon mr-2"
+                      />
+                      <div class="flex-grow-1">
+                        <div class="app-title">Instagram</div>
+                        <div class="app-category">Android, Windows</div>
+                        <div class="app-rating">
+                          <i class="fas fa-star text-warning"></i> 4.4
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
 
-      <!-- Grid -->
-       <div class="app-section position-relative mt-2">
-        <!-- LEFT ARROW -->
-        <button class="scroll-btn left d-none d-md-flex">
-          <i class="fas fa-chevron-left"></i>
-        </button>
+              <a
+                href="detail.html?app=tiktok"
+                class="text-dark text-decoration-none"
+              >
+                <div
+                  class="app-item mr-3"
+                  style="min-width: 320px"
+                  data-category="android "
+                  data-name="tiktok"
+                >
+                  <div class="app-card">
+                    <img
+                      src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+                      class="app-banner"
+                    />
+                    <div class="d-flex align-items-center mt-2">
+                      <img
+                        src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                        class="app-mini-icon mr-2"
+                      />
+                      <div class="flex-grow-1">
+                        <div class="app-title">Tiktok</div>
+                        <div class="app-category">Android</div>
+                        <div class="app-rating">
+                          <i class="fas fa-star text-warning"></i> 4.3
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
 
-        <div class="d-flex overflow-auto pb-3 app-scroll" id="appList">
+              <a
+                href="detail.html?app=notepad"
+                class="text-dark text-decoration-none"
+              >
+                <div
+                  class="app-item mr-3"
+                  style="min-width: 320px"
+                  data-category="windows"
+                  data-name="notepad"
+                >
+                  <div class="app-card">
+                    <img
+                      src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+                      class="app-banner"
+                    />
+                    <div class="d-flex align-items-center mt-2">
+                      <img
+                        src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                        class="app-mini-icon mr-2"
+                      />
+                      <div class="flex-grow-1">
+                        <div class="app-title">Notepad</div>
+                        <div class="app-category">Windows</div>
+                        <div class="app-rating">
+                          <i class="fas fa-star text-warning"></i> 4.1
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
 
-          <div class="app-item mr-3" style="min-width:320px;" data-category="android windows" data-name="instagram">
-            <div class="app-card">
-              <img src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg" class="app-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-mini-icon mr-2">
-                <div class="flex-grow-1">
-                  <div class="app-title">Instagram</div>
-                  <div class="app-category">Android, Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.4
+              <a
+                href="detail.html?app=vscode"
+                class="text-dark text-decoration-none"
+              >
+                <div
+                  class="app-item mr-3"
+                  style="min-width: 320px"
+                  data-category="windows"
+                  data-name="vscode"
+                >
+                  <div class="app-card">
+                    <img
+                      src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+                      class="app-banner"
+                    />
+                    <div class="d-flex align-items-center mt-2">
+                      <img
+                        src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                        class="app-mini-icon mr-2"
+                      />
+                      <div class="flex-grow-1">
+                        <div class="app-title">VS Code</div>
+                        <div class="app-category">Windows</div>
+                        <div class="app-rating">
+                          <i class="fas fa-star text-warning"></i> 4.5
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="detail.html?app=facebook"
+                class="text-dark text-decoration-none"
+              >
+                <div
+                  class="app-item mr-3"
+                  style="min-width: 320px"
+                  data-category="android "
+                  data-name="facebook"
+                >
+                  <div class="app-card">
+                    <img
+                      src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+                      class="app-banner"
+                    />
+                    <div class="d-flex align-items-center mt-2">
+                      <img
+                        src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                        class="app-mini-icon mr-2"
+                      />
+                      <div class="flex-grow-1">
+                        <div class="app-title">Facebook</div>
+                        <div class="app-category">Android</div>
+                        <div class="app-rating">
+                          <i class="fas fa-star text-warning"></i> 4.4
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- RIGHT ARROW -->
+            <button class="scroll-btn right d-none d-md-flex">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- ================= ANDROID SECTION ================= -->
+          <div class="app-section position-relative mt-2">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="mb-0">Latest Android Updates</h6>
+              <a href="#" class="small text-primary">Show all</a>
+            </div>
+
+            <!-- LEFT ARROW -->
+            <button class="scroll-btn left d-none d-md-flex">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- SCROLL AREA -->
+            <div class="d-flex overflow-auto pb-3 app-scroll">
+
+              <a href="detail.html?app=wechat" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="android"
+                data-name="wechat"
+              >
+                <img
+                  src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">We Chat</div>
+                    <div class="app-category">Android</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+              </a>
 
-          <div class="app-item mr-3" style="min-width:320px;" data-category="android " data-name="tiktok">
-            <div class="app-card">
-              <img src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg" class="app-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-mini-icon mr-2">
-                <div class="flex-grow-1">
-                  <div class="app-title">Tiktok</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
+              <a href="detail.html?app=wechat" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="android"
+                data-name="wechat"
+              >
+                <img
+                  src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">We Chat</div>
+                    <div class="app-category">Android</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+              </a>
 
-          <div class="app-item mr-3" style="min-width:320px;" data-category="windows" data-name="notepad">
-            <div class="app-card">
-              <img src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg" class="app-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-mini-icon mr-2">
-                <div class="flex-grow-1">
-                  <div class="app-title">Notepad</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.1
+              <a href="detail.html?app=wechat" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="android"
+                data-name="wechat"
+              >
+                <img
+                  src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">We Chat</div>
+                    <div class="app-category">Android</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+              </a>
 
-          <div class="app-item mr-3" style="min-width:320px;" data-category="windows" data-name="vscode">
-            <div class="app-card">
-              <img src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg" class="app-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-mini-icon mr-2">
-                <div class="flex-grow-1">
-                  <div class="app-title">VS Code</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.5
+              <a href="detail.html?app=wechat" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="android"
+                data-name="wechat"
+              >
+                <img
+                  src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">We Chat</div>
+                    <div class="app-category">Android</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+              </a>
 
-          <div class="app-item mr-3" style="min-width:320px;" data-category="android " data-name="facebook">
-            <div class="app-card">
-              <img src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg" class="app-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-mini-icon mr-2">
-                <div class="flex-grow-1">
-                  <div class="app-title">Facebook</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.4
+              <a href="detail.html?app=wechat" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="android"
+                data-name="wechat"
+              >
+                <img
+                  src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">We Chat</div>
+                    <div class="app-category">Android</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
                   </div>
                 </div>
               </div>
+              </a>
+              
             </div>
+
+            <!-- RIGHT ARROW -->
+            <button class="scroll-btn right d-none d-md-flex">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
 
+          <!-- ================= WINDOWS SECTION ================= -->
+          <div class="app-section position-relative mt-2">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="mb-0">Latest Windows Updates</h6>
+              <a href="#" class="small text-primary">Show all</a>
+            </div>
+
+            <!-- LEFT ARROW -->
+            <button class="scroll-btn left d-none d-md-flex">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- SCROLL AREA -->
+            <div class="d-flex overflow-auto pb-3 app-scroll">
+
+              <a href="detail.html?app=whatsapp" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="windows"
+                data-name="whatsapp"
+              >
+                <img
+                  src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">WhatsApp</div>
+                    <div class="app-category">Windows</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+              <a href="detail.html?app=whatsapp" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="windows"
+                data-name="whatsapp"
+              >
+                <img
+                  src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">WhatsApp</div>
+                    <div class="app-category">Windows</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+              <a href="detail.html?app=whatsapp" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="windows"
+                data-name="whatsapp"
+              >
+                <img
+                  src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">WhatsApp</div>
+                    <div class="app-category">Windows</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+              <a href="detail.html?app=whatsapp" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="windows"
+                data-name="whatsapp"
+              >
+                <img
+                  src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">WhatsApp</div>
+                    <div class="app-category">Windows</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+              <a href="detail.html?app=whatsapp" class="text-dark text-decoration-none">
+                <div
+                class="featured-card mr-3 app-item"
+                data-category="windows"
+                data-name="whatsapp"
+              >
+                <img
+                  src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png"
+                  class="featured-banner"
+                />
+                <div class="d-flex align-items-center mt-2">
+                  <img
+                    src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+                    class="app-icon mr-2"
+                  />
+                  <div>
+                    <div class="app-title">WhatsApp</div>
+                    <div class="app-category">Windows</div>
+                    <div class="app-rating">
+                      <i class="fas fa-star text-warning"></i> 4.3
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+              
+            </div>
+
+            <!-- RIGHT ARROW -->
+            <button class="scroll-btn right d-none d-md-flex">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
-
-        <!-- RIGHT ARROW -->
-        <button class="scroll-btn right d-none d-md-flex">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-       </div>
-      
-
-      <!-- ================= ANDROID SECTION ================= -->
-      <div class="app-section position-relative mt-2">
-
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h6 class="mb-0">Latest Android Updates</h6>
-          <a href="#" class="small text-primary">Show all</a>
-        </div>
-
-        <!-- LEFT ARROW -->
-        <button class="scroll-btn left d-none d-md-flex">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
-          <!-- SCROLL AREA -->
-          <div class="d-flex overflow-auto pb-3 app-scroll">
-
-            <div class="featured-card mr-3 app-item" data-category="android" data-name="wechat">
-              <img src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">We Chat</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="featured-card mr-3 app-item" data-category="android" data-name="wechat">
-              <img src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">We Chat</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="android" data-name="wechat">
-              <img src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">We Chat</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="android" data-name="wechat">
-              <img src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">We Chat</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="android" data-name="wechat">
-              <img src="https://tamediacdn.techaheadcorp.com/wp-content/uploads/2023/07/16050043/Android-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">We Chat</div>
-                  <div class="app-category">Android</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- RIGHT ARROW -->
-        <button class="scroll-btn right d-none d-md-flex">
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
-
-      <!-- ================= WINDOWS SECTION ================= -->
-      <div class="app-section position-relative mt-2">
-
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h6 class="mb-0">Latest Windows Updates</h6>
-          <a href="#" class="small text-primary">Show all</a>
-        </div>
-
-        <!-- LEFT ARROW -->
-        <button class="scroll-btn left d-none d-md-flex">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
-          <!-- SCROLL AREA -->
-          <div class="d-flex overflow-auto pb-3 app-scroll">
-
-            <div class="featured-card mr-3 app-item" data-category="windows" data-name="whatsapp">
-              <img src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">WhatsApp</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="windows" data-name="whatsapp">
-              <img src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">WhatsApp</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="windows" data-name="whatsapp">
-              <img src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">WhatsApp</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="windows" data-name="whatsapp">
-              <img src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">WhatsApp</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-card mr-3 app-item" data-category="windows" data-name="whatsapp">
-              <img src="https://winpoin.com/wp-content/uploads/2024/09/Windows-App-Kini-Tersedia-Secara-Umum-1.png" class="featured-banner">
-              <div class="d-flex align-items-center mt-2">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png" class="app-icon mr-2">
-                <div>
-                  <div class="app-title">WhatsApp</div>
-                  <div class="app-category">Windows</div>
-                  <div class="app-rating">
-                    <i class="fas fa-star text-warning"></i> 4.3
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- RIGHT ARROW -->
-          <button class="scroll-btn right d-none d-md-flex">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-
     </div>
-  </div>
 
-</div>
-
-<!-- JS -->
-<script src="assets/app.js"></script>
-
-</body>
+    <!-- JS -->
+    <script src="assets/app.js"></script>
+  </body>
 </html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <title>App Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/detail.css">
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav
+      class="main-header navbar navbar-expand navbar-white navbar-light px-2"
+    >
+      <a href="/" class="navbar-brand"><b>My</b>Play</a>
+
+      <form class="form-inline ml-2 flex-grow-1">
+        <input
+          class="form-control w-100"
+          type="search"
+          placeholder="Search Apps"
+        />
+      </form>
+    </nav>
+
+    <div class="container py-4">
+      <!-- HEADER -->
+      <div class="app-header d-flex align-items-center">
+        <img
+          src="https://static.wikia.nocookie.net/logopedia/images/0/0b/Windows_365_Mobile.png"
+          class="app-icon mr-3"
+        />
+
+        <div class="flex-grow-1">
+          <h4 class="mb-1">Instagram</h4>
+
+          <div class="mb-1 text-muted">Social Media • 1B+ Downloads</div>
+
+          <div class="mb-2">
+            <span class="badge-platform android">Android</span>
+            <span class="badge-platform windows">Windows</span>
+          </div>
+
+          <div>
+            <i class="fas fa-star rating-star"></i>
+            <i class="fas fa-star rating-star"></i>
+            <i class="fas fa-star rating-star"></i>
+            <i class="fas fa-star rating-star"></i>
+            <i class="fas fa-star-half-alt rating-star"></i>
+            <small class="ml-1">4.4</small>
+          </div>
+        </div>
+
+        <button class="btn btn-success">Install</button>
+      </div>
+
+      <!-- TAB BUTTONS -->
+      <div class="tab-bar mt-3">
+        <div class="tab-btn active" data-tab="about">About</div>
+        <div class="tab-btn" data-tab="reviews">Reviews</div>
+        <div class="tab-btn" data-tab="updates">Updates</div>
+      </div>
+
+      <!-- ================= ABOUT ================= -->
+      <div id="about" class="tab-content-box">
+        <h5>Description</h5>
+        <p class="text-muted">
+          Instagram is a fast and fun way to share your life.
+        </p>
+
+        <h5 class="mt-4">App Info</h5>
+
+        <div class="row text-muted small mt-2">
+          <div class="col-6 mb-2">
+            <strong>Version</strong><br />
+            1.2.0
+          </div>
+          <div class="col-6 mb-2">
+            <strong>Updated</strong><br />
+            Jan 2026
+          </div>
+          <div class="col-6 mb-2">
+            <strong>Size</strong><br />
+            45 MB
+          </div>
+          <div class="col-6 mb-2">
+            <strong>Developer</strong><br />
+            Meta Inc
+          </div>
+          <div class="col-6 mb-2">
+            <strong>Platform</strong><br />
+            Android / Windows
+          </div>
+        </div>
+
+        <h5 class="mt-4">Screenshots</h5>
+
+        <div class="screenshots-wrapper mt-2">
+          <div class="screenshots" id="gallery">
+            <img
+              src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+            />
+            <img
+              src="https://learn.microsoft.com/en-us/windows-app/media/get-started-connect-devices-desktops-apps/windows-welcome.png"
+            />
+            <img
+              src="https://androidkenya.com/wp-content/uploads/2024/09/Windows-App-on-Android.jpg"
+            />
+            <img
+              src="https://www.kagoya.jp/howto/wp-content/uploads/windowsapp.png"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= REVIEWS ================= -->
+      <div id="reviews" class="tab-content-box hidden">
+        <div class="review">
+          <strong>John</strong><br />
+          ⭐⭐⭐⭐☆<br />
+          Great app!
+        </div>
+
+        <div class="review">
+          <strong>Sarah</strong><br />
+          ⭐⭐⭐⭐⭐<br />
+          Love it!
+        </div>
+      </div>
+
+      <!-- ================= UPDATES ================= -->
+      <div id="updates" class="tab-content-box hidden">
+        <h6>What’s New</h6>
+        <ul class="text-muted mb-0">
+          <li>Bug fixes</li>
+          <li>Performance improvement</li>
+          <li>New UI design</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- IMAGE MODAL -->
+    <div id="viewer" class="viewer hidden">
+      <!-- CLOSE -->
+      <span class="viewer-close">&times;</span>
+
+      <!-- IMAGE -->
+      <img id="viewerImg" class="viewer-img" />
+
+      <!-- NAV -->
+      <button class="viewer-btn left">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="viewer-btn right">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <script src="assets/detail.js"></script>
+  </body>
+</html>
