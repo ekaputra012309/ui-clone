@@ -266,3 +266,11 @@ body {
 .hidden {
   display: none !important;
 }
+
+a.no-underline {
+  text-decoration: none;
+}
+
+a.no-underline :hover {
+  color: #fff;
+}
