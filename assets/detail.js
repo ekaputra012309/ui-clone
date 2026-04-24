@@ -1,72 +1,110 @@
 $(document).ready(function () {
-        /* ================= TAB SYSTEM ================= */
-        $(".tab-btn").click(function () {
-          $(".tab-btn").removeClass("active");
-          $(this).addClass("active");
+  /* ================= TAB SYSTEM ================= */
+  $(".tab-btn").on("click", function () {
+    const tab = $(this).data("tab");
 
-          let tab = $(this).data("tab");
+    // switch active button
+    $(".tab-btn").removeClass("active");
+    $(this).addClass("active");
 
-          $(".tab-content-box").addClass("hidden");
-          $("#" + tab).removeClass("hidden");
-        });
+    // hide all tabs
+    $(".tab-content-box").addClass("hidden");
 
-        let images = [];
-        let currentIndex = 0;
+    // show selected tab
+    $("#" + tab).removeClass("hidden");
+  });
 
-        // collect all images
-        $(".screenshots img").each(function () {
-          images.push($(this).attr("src"));
-        });
+  let images = [];
+  let currentIndex = 0;
 
-        /* OPEN VIEWER */
-        $(".screenshots img").click(function () {
-          currentIndex = $(this).index();
-          $("#viewerImg").attr("src", images[currentIndex]);
-          $("#viewer").removeClass("hidden");
-        });
+  // collect all images
+  $(".screenshots img").each(function () {
+    images.push($(this).attr("src"));
+  });
 
-        /* CLOSE */
-        $(".viewer-close").click(function () {
-          $("#viewer").addClass("hidden");
-        });
+  /* OPEN VIEWER */
+  $(".screenshots img").click(function () {
+    currentIndex = $(this).index();
+    $("#viewerImg").attr("src", images[currentIndex]);
+    $("#viewer").removeClass("hidden");
+  });
 
-        /* NEXT */
-        function showNext() {
-          currentIndex = (currentIndex + 1) % images.length;
-          $("#viewerImg").attr("src", images[currentIndex]);
-        }
+  /* CLOSE */
+  $(".viewer-close").click(function () {
+    $("#viewer").addClass("hidden");
+  });
 
-        /* PREV */
-        function showPrev() {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          $("#viewerImg").attr("src", images[currentIndex]);
-        }
+  /* NEXT */
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    $("#viewerImg").attr("src", images[currentIndex]);
+  }
 
-        $(".viewer-btn.right").click(showNext);
-        $(".viewer-btn.left").click(showPrev);
+  /* PREV */
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    $("#viewerImg").attr("src", images[currentIndex]);
+  }
 
-        /* SWIPE (MOBILE + MOUSE) */
-        let startX = 0;
+  $(".viewer-btn.right").click(showNext);
+  $(".viewer-btn.left").click(showPrev);
 
-        $("#viewer").on("touchstart mousedown", function (e) {
-          startX = e.originalEvent.touches
-            ? e.originalEvent.touches[0].clientX
-            : e.clientX;
-        });
+  /* SWIPE (MOBILE + MOUSE) */
+  let startX = 0;
 
-        $("#viewer").on("touchend mouseup", function (e) {
-          let endX = e.originalEvent.changedTouches
-            ? e.originalEvent.changedTouches[0].clientX
-            : e.clientX;
+  $("#viewer").on("touchstart mousedown", function (e) {
+    startX = e.originalEvent.touches
+      ? e.originalEvent.touches[0].clientX
+      : e.clientX;
+  });
 
-          let diff = startX - endX;
+  $("#viewer").on("touchend mouseup", function (e) {
+    let endX = e.originalEvent.changedTouches
+      ? e.originalEvent.changedTouches[0].clientX
+      : e.clientX;
 
-          if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-              showNext(); // swipe left
-            } else {
-              showPrev(); // swipe right
-            }
-          }
-        });
-      });
+    let diff = startX - endX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        showNext(); // swipe left
+      } else {
+        showPrev(); // swipe right
+      }
+    }
+  });
+});
+
+function toggleInstallBar() {
+  const isMobile = window.innerWidth < 768;
+
+  if (isMobile) {
+    $(".install-bar").show(); // ALWAYS show on mobile
+    return;
+  }
+
+  // desktop only scroll behavior
+  if ($(window).scrollTop() > 150) {
+    $(".install-bar").fadeIn();
+  } else {
+    $(".install-bar").fadeOut();
+  }
+}
+
+$(document).ready(toggleInstallBar);
+$(window).on("scroll", toggleInstallBar);
+$(window).on("resize", toggleInstallBar);
+
+const isAndroid = /Android/i.test(navigator.userAgent);
+const isWindows = /Windows/i.test(navigator.userAgent);
+
+// reorder buttons
+// if (isAndroid) {
+//   $(".android-btn").prependTo(".install-actions");
+//   $(".android-btn").addClass("highlight");
+// }
+
+// if (isWindows) {
+//   $(".windows-btn").prependTo(".install-actions");
+//   $(".windows-btn").addClass("highlight");
+// }

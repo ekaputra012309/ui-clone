@@ -67,7 +67,25 @@
           </div>
         </div>
 
-        <button class="btn btn-success">Install</button>
+        <div class="install-actions d-none d-md-flex flex-wrap">
+          <!-- ANDROID -->
+          <a href="#" class="store-btn android-btn no-underline">
+            <i class="fab fa-android"></i>
+            <div>
+              <small>Download for</small><br />
+              <strong>Android</strong>
+            </div>
+          </a>
+
+          <!-- WINDOWS -->
+          <a href="#" class="store-btn windows-btn no-underline">
+            <i class="fab fa-windows"></i>
+            <div>
+              <small>Download for</small><br />
+              <strong>Windows</strong>
+            </div>
+          </a>
+        </div>
       </div>
 
       <!-- TAB BUTTONS -->
@@ -170,6 +188,18 @@
       <button class="viewer-btn right">
         <i class="fas fa-chevron-right"></i>
       </button>
+    </div>
+
+    <div class="install-bar d-md-none">
+      <a class="store-btn android-btn">
+        <i class="fab fa-android"></i>
+        <strong>Android</strong>
+      </a>
+
+      <a class="store-btn windows-btn">
+        <i class="fab fa-windows"></i>
+        <strong>Windows</strong>
+      </a>
     </div>
 
     <script src="assets/detail.js"></script>
