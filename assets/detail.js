@@ -46,9 +46,14 @@ function row(result) {
 
 function loadApp(slug) {
   const res = db.exec(`
-    SELECT *
-    FROM apps
+    SELECT 
+      a.*,      
+      GROUP_CONCAT(DISTINCT c.name) as category
+    FROM apps a    
+    LEFT JOIN app_category ac ON ac.app_id = a.id
+    LEFT JOIN category c ON c.id = ac.category_id    
     WHERE slug='${slug}'
+     GROUP BY a.id
   `);
 
   if (!res.length) return;
@@ -74,23 +79,12 @@ function renderApp(app) {
 
   $("#appRating").text(app.rating || "0");
 
-  const category = getCategory(app.id);
+  const category = (app.category || "")
+    .split(",")
+    .map((c) => c.trim())
+    .join(" • ");
 
   $("#appMeta").text(`${category} | ${app.download_count || 0} Downloads`);
-}
-
-function getCategory(appId) {
-  const res = db.exec(`
-    SELECT c.name
-    FROM app_category ap
-    JOIN category c
-      ON c.id = ap.category_id
-    WHERE ap.app_id = ${appId}
-  `);
-
-  if (!res.length) return "Unknown";
-
-  return res[0].values[0][0];
 }
 
 /* PLATFORMS */

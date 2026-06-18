@@ -101,14 +101,19 @@ function loadApps() {
   const result = db.exec(`
     SELECT 
       a.*,
-      GROUP_CONCAT(p.name) as platforms
+      GROUP_CONCAT(DISTINCT p.name) as platforms,
+      GROUP_CONCAT(DISTINCT c.name) as category
     FROM apps a
     LEFT JOIN app_platforms ap ON ap.app_id = a.id
     LEFT JOIN platforms p ON p.id = ap.platform_id
+    LEFT JOIN app_category ac ON ac.app_id = a.id
+    LEFT JOIN category c ON c.id = ac.category_id
     GROUP BY a.id
   `);
 
   if (!result.length) return;
+
+  console.log(result);
 
   const cols = result[0].columns;
   const values = result[0].values;
@@ -144,12 +149,13 @@ function renderApps() {
   filtered.forEach((app) => {
     html += `
       <a href="detail.html?app=${app.slug}" class="text-dark">
-        <div class="card m-2 p-2" style="width:280px">
+        <div class="card m-2 p-2" >
           <img src="${app.banner_url}" style="height:120px; object-fit:cover"/>
           <div class="d-flex mt-2 align-items-center">
             <img src="${app.icon_url}" width="40" height="40" class="mr-2"/>
             <div>
               <b>${app.name}</b><br/>
+              <span class="text-xs">${renderCategory(app.category)}</span> <br>
               <i class="fas fa-star text-warning"></i> ${app.rating}
 
               <div class="mt-1">
@@ -175,9 +181,19 @@ function renderApps() {
 
         return `<span class="badge ${
           map[name] || "badge-secondary"
-        } mr-1">${p}</span>`;
+        } mr-1 text-xs">${p}</span>`;
       })
       .join("");
+  }
+
+  function renderCategory(category) {
+    return (category || "")
+      .split(",")
+      .map((p) => {
+        return `<span class="text-xs"
+        } mr-1">${p}</span>`;
+      })
+      .join(" &bull; ");
   }
 
   $("#appList").html(html);
@@ -194,7 +210,7 @@ function renderCustom(list) {
   list.forEach((app) => {
     html += `
       <a href="detail.html?app=${app.slug}" class="text-dark">
-        <div class="card m-2 p-2" style="width:280px">
+        <div class="card m-2 p-2" >
           <img src="${app.banner_url}" style="height:120px; object-fit:cover"/>
           <div class="d-flex mt-2 align-items-center">
             <img src="${app.icon_url}" width="40" height="40" class="mr-2"/>

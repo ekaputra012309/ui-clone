@@ -1,9 +1,9 @@
 .main-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 
 .app-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* small icon */
@@ -176,7 +176,7 @@ body {
   border-radius: 50%;
   border: none;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 
   display: flex;
   align-items: center;
@@ -185,8 +185,12 @@ body {
   pointer-events: auto;
 }
 
-.scroll-btn.left { left: -15px; }
-.scroll-btn.right { right: -15px; }
+.scroll-btn.left {
+  left: -15px;
+}
+.scroll-btn.right {
+  right: -15px;
+}
 
 /* CARDS */
 .featured-card {
@@ -208,4 +212,15 @@ body {
 
 h6 {
   font-weight: 600;
+}
+
+/* applist */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.app-grid .card {
+  width: 100%;
 }
