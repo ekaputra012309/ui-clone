@@ -69,7 +69,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-
+  font-weight: 600;
   padding: 10px 14px;
   border-radius: 10px;
   text-decoration: none;
@@ -81,9 +81,15 @@ body {
   font-size: 22px;
 }
 
+.store-btn:hover {
+  color: #ddd !important;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
 .android-btn {
   background: #3ddc84;
-  color: #000;
+  color: #fff;
 }
 
 .windows-btn {
@@ -94,13 +100,13 @@ body {
 /* =====================
    INSTALL BAR (MOBILE)
 ===================== */
-.install-bar {
+/* .install-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 95%;
-  z-index: 9999; /* keeps it above other elements */
-  background: #fff; /* optional, so it doesn't look transparent */
+  z-index: 9999; 
+  background: #fff; 
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
@@ -114,7 +120,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* =====================
    TABS
@@ -176,7 +182,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
   font-size: 24px;
@@ -185,8 +191,12 @@ body {
   z-index: 10;
 }
 
-.scroll-btn.left { left: 0; }
-.scroll-btn.right { right: 0; }
+.scroll-btn.left {
+  left: 0;
+}
+.scroll-btn.right {
+  right: 0;
+}
 
 @media (max-width: 768px) {
   .scroll-btn {
@@ -301,4 +311,147 @@ a.no-underline {
 
 a.no-underline :hover {
   color: #fff;
+}
+
+/* button left right on screen shoot */
+.screenshots-wrapper {
+  scroll-behavior: smooth;
+  gap: 10px;
+}
+
+.screenshot-img {
+  height: 180px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* arrows */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: 5px;
+}
+
+.scroll-btn.right {
+  right: 5px;
+}
+
+.hidden-arrow {
+  display: none !important;
+}
+
+/* hide arrows on mobile */
+@media (max-width: 768px) {
+  .scroll-btn {
+    display: none !important;
+  }
+}
+
+/* screenshoot image preview */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.viewer-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.viewer-prev {
+  left: 20px;
+}
+
+.viewer-next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .viewer-nav {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* button download for mobile view */
+.mobile-download-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid #ddd;
+  z-index: 9999;
+  justify-content: center;
+}
+
+.mobile-download-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Android */
+.mobile-download-bar .android {
+  background: #34a853;
+  color: white;
+}
+
+/* Windows */
+.mobile-download-bar .windows {
+  background: #0078d7;
+  color: white;
 }
