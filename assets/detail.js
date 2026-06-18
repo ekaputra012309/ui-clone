@@ -167,7 +167,8 @@ function renderMobileDownloadBar(platforms = []) {
     `;
   }
 
-  $("#mobileDownloadBar").html(html).show();
+  $("#mobileDownloadBar").html(html);
+  renderInstallUI();
 }
 
 /* SCREENSHOTS */
@@ -418,13 +419,11 @@ function initInstallBar() {
 }
 
 function renderInstallUI() {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
     $("#mobileDownloadBar").css("display", "flex");
-    // $(".install-actions").hide();
   } else {
     $("#mobileDownloadBar").css("display", "none");
-    // $(".install-actions").show();
   }
 }

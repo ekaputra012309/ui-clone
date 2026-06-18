@@ -420,12 +420,11 @@ a.no-underline :hover {
 }
 
 /* button download for mobile view */
-.mobile-download-bar {
+#mobileDownloadBar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
   gap: 10px;
   padding: 10px;
   background: white;
@@ -434,7 +433,7 @@ a.no-underline :hover {
   justify-content: center;
 }
 
-.mobile-download-bar a {
+#mobileDownloadBar a {
   flex: 1;
   text-align: center;
   padding: 10px;
@@ -445,13 +444,13 @@ a.no-underline :hover {
 }
 
 /* Android */
-.mobile-download-bar .android {
+#mobileDownloadBar .android {
   background: #34a853;
   color: white;
 }
 
 /* Windows */
-.mobile-download-bar .windows {
+#mobileDownloadBar .windows {
   background: #0078d7;
   color: white;
 }
